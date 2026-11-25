@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proqres — Alman Klubu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo-crop.jpg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="../index.html">
+    <img class="brand-logo" src="../assets/logo-crop.jpg" alt="de by Aysel Jafar">
+    <div class="brand-divider"></div>
+    <div class="brand-sub">Alman Klubu<small>Azərbaycanda ilk onlayn alman dili məktəbi</small></div>
+  </a>
+  <div class="topnav">
+    <a href="../index.html">Ana səhifə</a>
+    <a href="index.html">Söz kartları</a>
+    <a href="dictionary.html">Lüğət</a>
+    <a href="progress.html">Proqres</a>
+  </div>
+  <div class="topbar-right"><a class="btn btn-primary btn-sm" href="../index.html#sinaq">Ödənişsiz sınaq dərsi</a></div>
+</div>
+
+<div class="wrap">
+  <div class="section" style="padding-top:36px;">
+    <h1 class="section-title serif">Proqresim</h1>
+    <p class="section-lead">Cari səviyyəniz: <b id="current-level-txt" style="color:var(--parchment);">—</b></p>
+
+    <div class="progress-summary">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-lessons">0</div>
+        <div class="stat-label">tamamlanmış dərs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-pct">0%</div>
+        <div class="stat-label">ümumi irəliləyiş</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-avg">—</div>
+        <div class="stat-label">orta test nəticəsi</div>
+      </div>
+    </div>
+
+    <h2 class="section-title serif" style="font-size:1.2rem;">Səviyyələr üzrə</h2>
+    <div class="level-grid" id="level-summary" style="margin-bottom:36px;"></div>
+
+    <h2 class="section-title serif" style="font-size:1.2rem;">Son öyrənilən mövzular</h2>
+    <div class="recent-list" id="recent-list"></div>
+  </div>
+</div>
+
+<div class="site-footer">Alman Klubu — de by Aysel Jafar</div>
+
+<script src="js/data.js"></script>
+<script src="js/words-a1.js"></script>
+<script src="js/words-a2.js"></script>
+<script src="js/words-b1.js"></script>
+<script src="js/words-b2.js"></script>
+<script src="js/words-c1.js"></script>
+<script src="js/words-c2.js"></script>
+<script src="js/app.js"></script>
+<script src="js/progress.js"></script>
+</body>
+</html>

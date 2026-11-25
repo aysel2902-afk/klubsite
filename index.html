@@ -210,6 +210,29 @@ footer a{color:var(--orange)}
 @media (max-width:520px){.wa-float{right:14px;bottom:14px;width:50px;height:50px}.ig-float{right:17px;bottom:74px;width:44px;height:44px}}
 
 :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+/* Black Friday */
+.bf-bar{ position:relative; display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap;
+  margin:0 0 20px; padding:16px 22px; border-radius:14px; background:#0a0a0b; color:#f5efe3;
+  border:1px solid transparent; background-image: linear-gradient(#0a0a0b,#0a0a0b), linear-gradient(90deg,#c9a24b,#ff7a18,#c9a24b);
+  background-origin:border-box; background-clip:padding-box, border-box; box-shadow:0 10px 30px rgba(0,0,0,0.35); overflow:hidden; }
+.bf-bar::after{ content:''; position:absolute; top:0; left:-40%; width:30%; height:100%;
+  background:linear-gradient(100deg, transparent, rgba(255,215,140,0.10), transparent); animation:bfShine 4.5s ease-in-out infinite; pointer-events:none; }
+@keyframes bfShine{ 0%{ left:-40%; } 60%,100%{ left:120%; } }
+.bf-left{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.bf-label{ font-family:'Inter',sans-serif; font-weight:900; letter-spacing:0.14em; font-size:0.95rem; padding:6px 12px; border-radius:8px;
+  background:linear-gradient(135deg,#ffcf6b,#ff7a18); color:#0a0a0b; }
+.bf-text{ font-weight:700; font-size:1rem; }
+.bf-until{ font-size:0.8rem; color:#c9a24b; border:1px solid rgba(201,162,75,0.5); padding:3px 9px; border-radius:20px; }
+.bf-timer{ display:flex; gap:8px; }
+.bf-timer div{ min-width:52px; text-align:center; padding:6px 6px 4px; border-radius:9px; background:#18181b; border:1px solid rgba(201,162,75,0.35); }
+.bf-timer b{ display:block; font-size:1.2rem; font-weight:800; color:#ffcf6b; font-variant-numeric:tabular-nums; line-height:1.1; }
+.bf-timer small{ font-size:0.62rem; color:rgba(245,239,227,0.55); text-transform:uppercase; letter-spacing:0.08em; }
+@media (max-width:600px){ .bf-bar{ padding:14px; justify-content:center; text-align:center; } .bf-left{ justify-content:center; } .bf-timer div{ min-width:46px; } }
+.bf-wrap{ padding-top:22px; }
+a.bf-link{ text-decoration:none; cursor:pointer; }
+a.bf-link:hover{ box-shadow:0 10px 34px rgba(201,162,75,0.25); }
+a.bf-link{ color:#f5efe3; }
+.bf-wrap .bf-bar{ color:#f5efe3; }
 </style>
 </head>
 <body>
@@ -225,6 +248,8 @@ footer a{color:var(--orange)}
     </a>
     <nav class="topnav" id="topnav">
       <a href="#seviyyeler">Səviyyələr</a>
+      <a href="kartlar/index.html">Söz kartları</a>
+      <a href="kartlar/dictionary.html">Lüğət</a>
       <a href="#muellimler">Müəllimlər</a>
       <a href="#cedvel">Qruplar</a>
       <a href="#qiymetler" data-pricing>Qiymətlər</a>
@@ -237,6 +262,37 @@ footer a{color:var(--orange)}
 </header>
 
 <main id="top">
+  <!-- BLACK FRIDAY -->
+  <div class="wrap bf-wrap" id="bf-main">
+    <a class="bf-bar bf-link" href="kartlar/index.html" title="Söz kartlarının qiymətləri">
+      <div class="bf-left">
+        <span class="bf-label">BLACK FRIDAY</span>
+        <span class="bf-text">Bütün səviyyələrin söz kartlarına 45%-ə qədər endirim</span>
+        <span class="bf-until">3 dekabr tarixinədək</span>
+      </div>
+      <div class="bf-timer" data-until="2026-12-03T23:59:59">
+        <div><b data-u="d">0</b><small>gün</small></div>
+        <div><b data-u="h">00</b><small>saat</small></div>
+        <div><b data-u="m">00</b><small>dəq</small></div>
+        <div><b data-u="s">00</b><small>san</small></div>
+      </div>
+    </a>
+  </div>
+  <script>
+  (function(){
+    var box=document.getElementById('bf-main'); if(!box) return;
+    var t=box.querySelector('.bf-timer');
+    function tick(){
+      var ms=new Date(t.dataset.until)-new Date();
+      if(ms<0){ box.remove(); clearInterval(iv); return; }
+      var d=Math.floor(ms/864e5); ms-=d*864e5; var h=Math.floor(ms/36e5); ms-=h*36e5;
+      var m=Math.floor(ms/6e4); ms-=m*6e4; var s=Math.floor(ms/1e3);
+      function set(k,v){ t.querySelector('[data-u="'+k+'"]').textContent=v; }
+      set('d',d); set('h',String(h).padStart(2,'0')); set('m',String(m).padStart(2,'0')); set('s',String(s).padStart(2,'0'));
+    }
+    var iv=setInterval(tick,1000); tick();
+  })();
+  </script>
   <!-- HERO -->
   <div class="wrap">
     <div class="hero">
@@ -283,7 +339,7 @@ footer a{color:var(--orange)}
     <div class="wrap">
       <div class="eyebrow">Səviyyələr</div>
       <h2 class="section-title">Hər səviyyə üçün ayrıca kurs</h2>
-      <p class="section-lead">Səviyyənizi bilmirsinizsə, narahat olmayın. Sınaq dərsində müəllim müəyyən edəcək. Həmçinin <a data-wa="test" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline">testin düymələrini seçərək</a> cəmi bir neçə dəqiqəyə səviyyənizi özünüz yoxlaya bilərsiniz.</p>
+      <p class="section-lead">Səviyyənizi bilmirsinizsə, narahat olmayın. Sınaq dərsində müəllim müəyyən edəcək. Həmçinin <a data-wa="test" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline">testin düymələrini seçərək</a> cəmi bir neçə dəqiqəyə səviyyənizi özünüz yoxlaya bilərsiniz. Hər səviyyədə <b style="color:var(--parchment)">söz kartları</b> ilə də məşq edə bilərsiniz: tələffüz, tapşırıqlar və krossvord.</p>
       <div class="level-grid" id="level-grid"></div>
     </div>
   </section>
@@ -452,9 +508,9 @@ const LEVELS = [
   { id:'A1', words:'~800 söz',    desc:'Sadə ifadələr, tanışlıq, gündəlik məişət mövzuları.', lang:'Dərs dili: azərbaycan / alman' },
   { id:'A2', words:'~1 000 söz',  desc:'Gündəlik situasiyalarda ünsiyyət qurmaq.',             lang:'Dərs dili: azərbaycan / alman' },
   { id:'B1', words:'~2 000 söz',  desc:'Söhbəti davam etdirmək, hadisə və fikirləri izah etmək. Ausbildung üçün minimum səviyyə.', lang:'Dərs dili: tam alman' },
-  { id:'B2', words:'~4 000 söz',  desc:'Mürəkkəb mövzuları müzakirə etmək, əksər mətnləri anlamaq.', lang:'Dərs dili: tam alman' },
-  { id:'C1', words:'~6 000 söz',  desc:'Dili işdə və təhsildə sərbəst istifadə etmək.',       lang:'Dərs dili: tam alman' },
-  { id:'C2', words:'~6 000+ söz', desc:'Təhsilli dil daşıyıcısı səviyyəsinə yaxın geniş və çevik lüğət.', lang:'Dərs dili: tam alman' },
+  { id:'B2', words:'~5 000 söz',  desc:'Mürəkkəb mövzuları müzakirə etmək, əksər mətnləri anlamaq.', lang:'Dərs dili: tam alman' },
+  { id:'C1', words:'~5 000 söz',  desc:'Dili işdə və təhsildə sərbəst istifadə etmək.',       lang:'Dərs dili: tam alman' },
+  { id:'C2', words:'~5 000 söz', desc:'Təhsilli dil daşıyıcısı səviyyəsinə yaxın geniş və çevik lüğət.', lang:'Dərs dili: tam alman' },
 ];
 
 const TEACHERS = [
@@ -511,7 +567,10 @@ $('#level-grid').innerHTML = LEVELS.map(l => {
     <div class="level-lang">${esc(l.lang)}</div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
       <span style="font-size:.85rem;color:var(--muted)">${CONFIG.showPricing && p ? p.price + ' ' + CONFIG.currency + ' / ay' : ''}</span>
-      <a class="btn btn-outline btn-sm" href="#sinaq" data-pick-level="${l.id}">Sınaq dərsi</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="btn btn-primary btn-sm" href="kartlar/course.html?level=${l.id.toLowerCase()}">Söz kartları</a>
+        <a class="btn btn-outline btn-sm" href="#sinaq" data-pick-level="${l.id}">Sınaq dərsi</a>
+      </div>
     </div>
   </div>`;
 }).join('');
@@ -701,7 +760,7 @@ const io = new IntersectionObserver(entries => {
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
   });
 }, { rootMargin:'-45% 0px -50% 0px' });
-navLinks.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
+navLinks.forEach(a => { const h = a.getAttribute('href'); if (!h.startsWith('#')) return; const s = document.querySelector(h); if (s) io.observe(s); });
 </script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lüğət — Alman Klubu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo-crop.jpg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="../index.html">
+    <img class="brand-logo" src="../assets/logo-crop.jpg" alt="de by Aysel Jafar">
+    <div class="brand-divider"></div>
+    <div class="brand-sub">Alman Klubu<small>Azərbaycanda ilk onlayn alman dili məktəbi</small></div>
+  </a>
+  <div class="topnav">
+    <a href="../index.html">Ana səhifə</a>
+    <a href="index.html">Söz kartları</a>
+    <a href="dictionary.html">Lüğət</a>
+    <a href="progress.html">Proqres</a>
+  </div>
+  <div class="topbar-right"><a class="btn btn-primary btn-sm" href="../index.html#sinaq">Ödənişsiz sınaq dərsi</a></div>
+</div>
+
+<div class="wrap">
+  <div class="section" style="padding-top:36px;">
+    <h1 class="section-title serif">Lüğət</h1>
+    <p class="section-lead">A1-dən C2-yə qədər bütün söz kartları bir yerdə: alman və ya azərbaycan dilində axtarın, səviyyəyə görə seçin, 🔊 ilə tələffüzə qulaq asın. Səviyyə etiketinə toxunsanız, sözün olduğu mərhələyə keçəcəksiniz.</p>
+
+    <div class="dict-controls">
+      <input type="text" class="dict-search" id="dict-search" placeholder="Söz axtar (alman və ya azərbaycan dilində)...">
+      <div id="level-chips" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+      <div id="kind-chips" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+    </div>
+    <div style="font-size:0.82rem; color:rgba(240,230,210,0.5); margin-bottom:14px;" id="dict-count"></div>
+
+    <div class="dict-table" id="dict-list"></div>
+    <div style="text-align:center;margin:18px 0 8px;"><button class="btn btn-outline btn-sm" id="dict-more" style="display:none;"></button></div>
+  </div>
+</div>
+
+<div class="site-footer">Alman Klubu — de by Aysel Jafar</div>
+
+<script src="js/data.js"></script>
+<script src="js/words-a1.js"></script>
+<script src="js/words-a2.js"></script>
+<script src="js/words-b1.js"></script>
+<script src="js/words-b2.js"></script>
+<script src="js/words-c1.js"></script>
+<script src="js/words-c2.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dictionary.js"></script>
+</body>
+</html>
