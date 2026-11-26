@@ -3,7 +3,7 @@
    eyni struktura uyğun yeni obyekt əlavə etmək kifayətdir. */
 
 const WHATSAPP_NUMBER = '994709700666';
-const WHATSAPP_LINK = 'https://wa.me/' + WHATSAPP_NUMBER;
+const WHATSAPP_LINK = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('Salam! Söz kartları ilə maraqlanıram 🃏');
 const INSTAGRAM_LINK = 'https://www.instagram.com/alman__klubu?stkn=MXhwejB1dXR1YzJ6NQ==';
 const WORK_STUDY_VIDEO = 'assets/video/teacher-2.mp4';
 const WORK_STUDY_VIDEO_POSTER = 'assets/video/teacher-2-poster.jpg';
